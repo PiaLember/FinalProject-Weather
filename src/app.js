@@ -42,6 +42,7 @@ function displayTemperature(response) {
 }
 
 let apiKey = "ac0f4954f2276c6ad1120e7edce5fa23";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lewisville&appid=${apiKey}&units=metric`;
+let city = "Lewisville";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);

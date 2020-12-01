@@ -1,3 +1,7 @@
+h1 {
+  font-size: 56px;
+  margin-bottom: -6px;
+}
 h6 {
   padding-top: 36px;
   padding-right: 10px;
@@ -99,10 +103,7 @@ footer {
   padding-top: 28px;
   color: #d789d7;
 }
-#search-outcome {
-  font-size: 56px;
-  margin-bottom: -6px;
-}
+
 #time {
   font-size: 20px;
 }
