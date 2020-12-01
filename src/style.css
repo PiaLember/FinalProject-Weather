@@ -1,8 +1,9 @@
 h6 {
   padding-top: 36px;
+  padding-right: 10px;
   font-family: "Source Code Pro", monospace;
   color: #5d54a4;
-  font-size: 20px;
+  display: inline-block;
 }
 input[type="search"] {
   border-radius: 2px;
@@ -13,9 +14,10 @@ input[type="search"] {
   padding: 10px;
   width: 300px;
 }
-h1 {
-  font-size: 50px;
+footer {
+  opacity: 0.6;
 }
+
 .weather-container {
   background-image: linear-gradient(
     to top,
@@ -24,15 +26,43 @@ h1 {
     #e3eeff 100%
   );
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-  margin: 20px 0;
+  margin: 20px 0 4px 0;
   max-width: 600px;
   padding: 20px 20px 20px 26px;
   font-family: "Roboto", sans-serif;
 }
+
 .weather-summary {
   color: #5d54a4;
   margin-top: 16px;
 }
+.city-search {
+  margin-top: 10px;
+}
+.aditional-description {
+  color: #5d54a4;
+  float: right;
+  margin-top: -120px;
+}
+.weather-week {
+  margin-top: 48px;
+  margin-left: 1px;
+  color: #5d54a4;
+}
+.forecast-emoji {
+  float: left;
+  font-size: 32px;
+  margin-top: -20px;
+}
+.forecast-temp {
+  font-size: 30px;
+  text-align: right;
+}
+.forecast-day {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
 #current-location {
   height: 28px;
   color: #ffffff;
@@ -56,35 +86,20 @@ h1 {
   width: 80px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
-.city-search {
-  margin-top: 10px;
-}
-#description {
-  margin-top: -12px;
-}
+
 #icon {
-  font-size: 60px;
+  font-size: 58px;
   float: left;
 }
 #temp {
-  font-size: 58px;
+  font-size: 60px;
   padding-top: 28px;
   color: #d789d7;
 }
-#real-feel {
-  margin-top: -18px;
+#search-outcome {
+  font-size: 56px;
+  margin-bottom: -6px;
 }
-#wind {
+#time {
   font-size: 20px;
-  color: #5d54a4;
-  float: right;
-  margin-top: -80px;
-  margin-right: 60px;
-}
-#humidity {
-  font-size: 20px;
-  color: #5d54a4;
-  float: right;
-  margin-top: -110px;
-  margin-right: 32px;
 }

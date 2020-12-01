@@ -10,6 +10,10 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/704bcb8832.js"
       crossorigin="anonymous"
@@ -19,9 +23,6 @@
   <body>
     <div class="container">
       <div class="weather-container">
-        <button id="current-location">
-          <i class="fas fa-map-marker-alt"></i>
-        </button>
         <span id="degree-buttons">
           <button type="button" class="btn btn-outline-dark" id="celsius">
             °C
@@ -30,7 +31,12 @@
             °F
           </button>
         </span>
-        <h6 id="time">Monday 21:28</h6>
+        <div class="time-location">
+          <h6 id="time">Monday 21:28</h6>
+          <button id="current-location">
+            <i class="fas fa-map-marker-alt"></i>
+          </button>
+        </div>
         <form class="city-search" id="search">
           <input
             type="search"
@@ -42,13 +48,17 @@
           <input type="submit" value="Search" id="search-button" />
         </form>
         <div class="weather-summary">
-          <h1 id="search-outcome">Lewisville</h1>
-          <small id="description"> Clear </small>
+          <div class="weather-summary-heading">
+            <h1 id="search-outcome">Lewisville</h1>
+            <p id="description">Clear</p>
+          </div>
           <h2 id="icon">🌤</h2>
           <h2 id="temp">9°</h2>
-          <small id="real-feel">Real feel 4°</small>
-          <h5 id="humidity">Humidity: 71 %</h5>
-          <h5 id="wind">Wind: 3 m/s</h5>
+          <p id="real-feel">Real feel 4°</p>
+          <div class="aditional-description">
+            <h5 id="humidity">Humidity: 71 %</h5>
+            <h5 id="wind">Wind: 3 m/s</h5>
+          </div>
         </div>
         <div class="row weather-week">
           <div class="col">
@@ -78,15 +88,16 @@
           </div>
         </div>
       </div>
+
+      <footer>
+        <a
+          href="https://github.com/PiaLember/FinalProject-Weather"
+          target="_blank"
+        >
+          Open-source code</a
+        >, by PiaL
+      </footer>
     </div>
-    <footer>
-      <a
-        href="https://github.com/PiaLember/FinalProject-Weather"
-        target="_blank"
-      >
-        Open-source code</a
-      >, by PiaL
-    </footer>
     <script src="src/app.js"></script>
   </body>
 </html>
