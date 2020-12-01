@@ -1,3 +1,90 @@
+h6 {
+  padding-top: 36px;
+  font-family: "Source Code Pro", monospace;
+  color: #5d54a4;
+  font-size: 20px;
+}
+input[type="search"] {
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  height: 42px;
+  outline: 0;
+  padding: 10px;
+  width: 300px;
+}
 h1 {
-  color: red;
+  font-size: 50px;
+}
+.weather-container {
+  background-image: linear-gradient(
+    to top,
+    #f3e7e9 0%,
+    #e3eeff 99%,
+    #e3eeff 100%
+  );
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin: 20px 0;
+  max-width: 600px;
+  padding: 20px 20px 20px 26px;
+  font-family: "Roboto", sans-serif;
+}
+.weather-summary {
+  color: #5d54a4;
+  margin-top: 16px;
+}
+#current-location {
+  height: 28px;
+  color: #ffffff;
+  background-color: #5d54a4;
+  border-radius: 2px;
+  width: 32px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+#degree-buttons {
+  float: right;
+  right: 0;
+  margin-top: 20px;
+}
+
+#search-button {
+  height: 42px;
+  color: #ffffff;
+  background-color: #5d54a4;
+  border-radius: 2px;
+  width: 80px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+.city-search {
+  margin-top: 10px;
+}
+#description {
+  margin-top: -12px;
+}
+#icon {
+  font-size: 60px;
+  float: left;
+}
+#temp {
+  font-size: 58px;
+  padding-top: 28px;
+  color: #d789d7;
+}
+#real-feel {
+  margin-top: -18px;
+}
+#wind {
+  font-size: 20px;
+  color: #5d54a4;
+  float: right;
+  margin-top: -80px;
+  margin-right: 60px;
+}
+#humidity {
+  font-size: 20px;
+  color: #5d54a4;
+  float: right;
+  margin-top: -110px;
+  margin-right: 32px;
 }
