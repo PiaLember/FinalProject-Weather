@@ -10,10 +10,81 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/704bcb8832.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Weather</title>
   </head>
   <body>
-    <h1>Weather</h1>
+    <div class="container">
+      <button id="current-location">
+        <i class="fas fa-map-marker-alt"></i>
+      </button>
+      <span id="degree-buttons">
+        <button type="button" class="btn btn-outline-dark" id="celsius">
+          °C
+        </button>
+        <button type="button" class="btn btn-outline-dark" id="fahrenheit">
+          °F
+        </button>
+      </span>
+      <h6 id="time">Monday 21:28</h6>
+      <form class="city-search" id="search">
+        <input
+          type="search"
+          placeholder="City"
+          id="city-input"
+          autocomplete="off"
+          autofocus="on"
+        />
+        <input type="submit" value="Search" id="search-button" />
+      </form>
+      <div class="weather-summary">
+        <h1 id="search-outcome">Lewisville</h1>
+        <small id="description"> Clear </small>
+        <h2 id="icon">🌤</h2>
+        <h2 id="temp">9°</h2>
+        <small id="real-feel">Real feel 4°</small>
+        <h5 id="humidity">Humidity: 71 %</h5>
+        <h5 id="wind">Wind: 3 m/s</h5>
+      </div>
+      <div class="row weather-week">
+        <div class="col">
+          <div class="forecast-emoji">🌤</div>
+          <div class="forecast-temp">10°</div>
+          <div class="forecast-day">TUE</div>
+        </div>
+        <div class="col">
+          <div class="forecast-emoji">🌤</div>
+          <div class="forecast-temp">10°</div>
+          <div class="forecast-day">WED</div>
+        </div>
+        <div class="col">
+          <div class="forecast-emoji">🌤</div>
+          <div class="forecast-temp">10°</div>
+          <div class="forecast-day">THU</div>
+        </div>
+        <div class="col">
+          <div class="forecast-emoji">🌤</div>
+          <div class="forecast-temp">10°</div>
+          <div class="forecast-day">FRI</div>
+        </div>
+        <div class="col">
+          <div class="forecast-emoji">🌤</div>
+          <div class="forecast-temp">10°</div>
+          <div class="forecast-day">SAT</div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <a
+        href="https://github.com/PiaLember/FinalProject-Weather"
+        target="_blank"
+      >
+        Open-source code</a
+      >, by PiaL
+    </footer>
     <script src="src/app.js"></script>
   </body>
 </html>
