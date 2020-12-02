@@ -50,6 +50,7 @@ footer {
   color: #5d54a4;
   float: right;
   margin-top: -120px;
+  margin-right: 16px;
 }
 .weather-week {
   margin-top: 48px;
@@ -82,9 +83,24 @@ footer {
 #degree-buttons {
   float: right;
   right: 0;
-  margin-top: 20px;
+  margin-top: 32px;
+  margin-right: 16px;
 }
 
+#celsius {
+  height: 34px;
+  width: 36px;
+}
+#celsius:hover {
+  background-color: #5d54a4;
+}
+#fahrenheit {
+  height: 34px;
+  width: 36px;
+}
+#fahrenheit:hover {
+  background-color: #5d54a4;
+}
 #search-button {
   height: 42px;
   color: #ffffff;

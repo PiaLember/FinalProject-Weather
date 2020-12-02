@@ -32,7 +32,9 @@ function displayTemperature(response) {
   let currentTime = new Date();
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = `${Math.round(response.data.main.temp)}°`;
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   realFeelElement.innerHTML = `Real feel ${Math.round(
@@ -61,7 +63,28 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Lewisville");
+function diplayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
+}
+
+function diplayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
+}
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitButton = document.querySelector("#fahrenheit");
+fahrenheitButton.addEventListener("click", diplayFahrenheitTemperature);
+
+let celsiusButton = document.querySelector("#celsius");
+celsiusButton.addEventListener("click", diplayCelsiusTemperature);
+
+search("Lewisville");
