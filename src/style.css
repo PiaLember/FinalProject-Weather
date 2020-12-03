@@ -21,7 +21,7 @@ input[type="search"] {
 p:first-letter {
   text-transform: capitalize;
 }
-footer {
+small {
   opacity: 0.6;
 }
 
@@ -57,18 +57,19 @@ footer {
   margin-left: 1px;
   color: #5d54a4;
 }
-.forecast-emoji {
-  float: left;
-  font-size: 32px;
-  margin-top: -20px;
-}
+
 .forecast-temp {
   font-size: 30px;
-  text-align: right;
+  margin-top: 10px;
 }
 .forecast-day {
   font-size: 12px;
-  margin-left: 10px;
+  margin-left: 8px;
+}
+#forecast-icon {
+  float: left;
+  width: 24px;
+  height: 24px;
 }
 
 #current-location {

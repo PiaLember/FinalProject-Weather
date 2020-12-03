@@ -33,13 +33,12 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
+  celsiusRealFeel = response.data.main.feels_like;
 
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
-  realFeelElement.innerHTML = `Real feel ${Math.round(
-    response.data.main.feels_like
-  )}°`;
+  realFeelElement.innerHTML = `Real feel ${Math.round(celsiusRealFeel)}°`;
   humidityElement.innerHTML = `Humidity: ${response.data.main.humidity} %`;
   windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} m/s`;
   dateElement.innerHTML = formatDate(currentTime);
@@ -64,27 +63,44 @@ function handleSubmit(event) {
 }
 
 function diplayFahrenheitTemperature(event) {
-  event.preventDefault();
   let temperatureElement = document.querySelector("#temp");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+
   temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
+}
+function displayFahrenheitRealFeel(event) {
+  let temperatureRealFeel = document.querySelector("#real-feel");
+  let fahrenheitRealFeel = (celsiusRealFeel * 9) / 5 + 32;
+  temperatureRealFeel.innerHTML = `Real feel ${Math.round(
+    fahrenheitRealFeel
+  )}°`;
 }
 
 function diplayCelsiusTemperature(event) {
-  event.preventDefault();
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
 }
+function displayCelsiusRealFeel(event) {
+  let temperatureRealFeel = document.querySelector("#real-feel");
+  temperatureRealFeel.innerHTML = `Real feel ${Math.round(celsiusRealFeel)}°`;
+}
 
 let celsiusTemperature = null;
+let celsiusRealFeel = null;
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", handleSubmit);
 
 let fahrenheitButton = document.querySelector("#fahrenheit");
-fahrenheitButton.addEventListener("click", diplayFahrenheitTemperature);
+fahrenheitButton.addEventListener("click", () => {
+  diplayFahrenheitTemperature();
+  displayFahrenheitRealFeel();
+});
 
 let celsiusButton = document.querySelector("#celsius");
-celsiusButton.addEventListener("click", diplayCelsiusTemperature);
+celsiusButton.addEventListener("click", () => {
+  diplayCelsiusTemperature();
+  displayCelsiusRealFeel();
+});
 
 search("Lewisville");
