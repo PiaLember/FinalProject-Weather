@@ -85,6 +85,18 @@ function displayCelsiusRealFeel(event) {
   temperatureRealFeel.innerHTML = `Real feel ${Math.round(celsiusRealFeel)}°`;
 }
 
+function currentLocation(position) {
+  let apiKey = "ac0f4954f2276c6ad1120e7edce5fa23";
+  let longitude = position.coords.longitude;
+  let latitude = position.coords.latitude;
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function showCurrentLocation(event) {
+  navigator.geolocation.getCurrentPosition(currentLocation);
+}
+
 let celsiusTemperature = null;
 let celsiusRealFeel = null;
 
@@ -102,5 +114,8 @@ celsiusButton.addEventListener("click", () => {
   diplayCelsiusTemperature();
   displayCelsiusRealFeel();
 });
+
+let currentButton = document.querySelector("#current-location");
+currentButton.addEventListener("click", showCurrentLocation);
 
 search("Lewisville");
