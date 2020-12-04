@@ -18,7 +18,23 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+
   return `${day} ${hours}:${minutes}`;
+}
+
+function formatDays(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day}`;
 }
 
 function displayTemperature(response) {
@@ -49,11 +65,32 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function dispalyForecast(response) {
+  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col">
+    <img id="forecast-icon"
+    src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+  />
+            <div class="forecast-temp">${Math.round(forecast.main.temp)}°</div>
+            <div class="forecast-day">${formatDays(forecast.dt * 10001)}</div>
+          </div>
+  `;
+  }
+}
+
 function search(city) {
   let apiKey = "ac0f4954f2276c6ad1120e7edce5fa23";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
   axios.get(apiUrl).then(displayTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
 }
 
 function handleSubmit(event) {
@@ -118,4 +155,4 @@ celsiusButton.addEventListener("click", () => {
 let currentButton = document.querySelector("#current-location");
 currentButton.addEventListener("click", showCurrentLocation);
 
-search("Lewisville");
+search("Tallinn");
