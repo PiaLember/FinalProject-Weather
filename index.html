@@ -23,7 +23,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-container" id="weather-container">
+      <div class="weather-container">
+        <div id="hour-forecast">
+          Next 12 hours:
+          <div class="weather-week" id="forecast"></div>
+        </div>
         <span id="degree-buttons">
           <button type="button" class="btn btn-outline-dark" id="celsius">
             °C
@@ -35,13 +39,11 @@
             <i class="fas fa-map-marker-alt"></i>
           </button>
         </span>
-        <div id="hour-forecast">
-          Next 12 hours:
-          <div class="weather-week" id="forecast"></div>
-        </div>
+
         <div class="time-location">
           <h6 id="time">Monday 21:28</h6>
         </div>
+
         <form class="city-search" id="search">
           <input
             type="search"
@@ -58,6 +60,7 @@
             <h1 id="search-outcome"></h1>
             <p id="description"></p>
           </div>
+
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
             alt="Clear"
@@ -66,6 +69,7 @@
           />
           <h2 id="temp"></h2>
           <p id="real-feel"></p>
+
           <div class="aditional-description">
             <h5 id="humidity"></h5>
             <h5 id="wind"></h5>

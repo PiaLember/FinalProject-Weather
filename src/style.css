@@ -29,14 +29,14 @@ small {
 .weather-container {
   background-image: linear-gradient(
     to top,
-    #f3e7e9 0%,
-    #e3eeff 99%,
-    #e3eeff 100%
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
   );
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   margin: 20px 0 4px 0;
   max-width: 600px;
-  padding: 20px 20px 20px 26px;
+  padding: 10px 20px 30px 26px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -51,8 +51,8 @@ small {
 .aditional-description {
   color: #5d54a4;
   float: right;
-  margin-top: -120px;
-  margin-right: 16px;
+  margin-top: -110px;
+  margin-right: 70px;
 }
 
 .week {
@@ -60,6 +60,14 @@ small {
   border: 1px solid #5d54a4;
   border-radius: 4px;
   margin-bottom: 1px;
+  padding-right: 4px;
+  background-image: linear-gradient(
+    to top,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 .forecast-temp {
@@ -80,6 +88,7 @@ small {
   color: #5d54a4;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 10px;
   margin: 0;
 }
 
@@ -102,7 +111,7 @@ small {
 #degree-buttons {
   float: left;
   right: 0;
-  margin-top: 0px;
+  margin-top: 10px;
   margin-right: 16px;
 }
 
