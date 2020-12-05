@@ -70,15 +70,17 @@ function dispalyForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 12; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
-    <div class="col">
+    <div class="week">
     <img id="forecast-icon"
     src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
   />
-            <div class="forecast-temp">${Math.round(forecast.main.temp)}°</div>
-            <div class="forecast-day">${formatDays(forecast.dt * 10001)}</div>
+            <span class="forecast-temp">${Math.round(
+              forecast.main.temp
+            )}°</span>
+            <span class="forecast-day">${formatDate(forecast.dt * 1000)}</span>
           </div>
   `;
   }
@@ -158,4 +160,4 @@ celsiusButton.addEventListener("click", () => {
 let currentButton = document.querySelector("#current-location");
 currentButton.addEventListener("click", showCurrentLocation);
 
-search("Tallinn");
+search("Dallas");

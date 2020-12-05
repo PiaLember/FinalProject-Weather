@@ -23,7 +23,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-container">
+      <div class="weather-container" id="weather-container">
         <span id="degree-buttons">
           <button type="button" class="btn btn-outline-dark" id="celsius">
             °C
@@ -31,12 +31,16 @@
           <button type="button" class="btn btn-outline-dark" id="fahrenheit">
             °F
           </button>
-        </span>
-        <div class="time-location">
-          <h6 id="time">Monday 21:28</h6>
           <button id="current-location">
             <i class="fas fa-map-marker-alt"></i>
           </button>
+        </span>
+        <div id="hour-forecast">
+          Next 12 hours:
+          <div class="weather-week" id="forecast"></div>
+        </div>
+        <div class="time-location">
+          <h6 id="time">Monday 21:28</h6>
         </div>
         <form class="city-search" id="search">
           <input
@@ -48,6 +52,7 @@
           />
           <input type="submit" value="Search" id="search-button" />
         </form>
+
         <div class="weather-summary">
           <div class="weather-summary-heading">
             <h1 id="search-outcome"></h1>
@@ -66,7 +71,6 @@
             <h5 id="wind"></h5>
           </div>
         </div>
-        <div class="row weather-week" id="forecast"></div>
       </div>
 
       <small>
