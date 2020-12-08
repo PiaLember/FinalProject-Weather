@@ -72,7 +72,7 @@ function dispalyForecast(response) {
   let forecast = null;
   for (let index = 0; index < 12; index++) {
     forecast = response.data.list[index];
-    forecastTemperature = forecast.main.temp;
+    let forecastTemperature = forecast.main.temp;
     forecastElement.innerHTML += `
     <div class="week">
     <img id="forecast-icon"
@@ -80,7 +80,7 @@ function dispalyForecast(response) {
   />
             <span class="forecast-temp" id="forecast-temp">${Math.round(
               forecastTemperature
-            )}°</span>
+            )}</span>
             <span class="forecast-day">${formatDate(forecast.dt * 1000)}</span>
           </div>
   `;
@@ -105,34 +105,46 @@ function handleSubmit(event) {
 function diplayFahrenheitTemperature(event) {
   let temperatureElement = document.querySelector("#temp");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-
   temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
-}
-function displayFahrenheitRealFeel(event) {
+
   let temperatureRealFeel = document.querySelector("#real-feel");
   let fahrenheitRealFeel = (celsiusRealFeel * 9) / 5 + 32;
   temperatureRealFeel.innerHTML = `Real feel ${Math.round(
     fahrenheitRealFeel
   )}°`;
-}
 
-function displayWindMph(event) {
   let windElement = document.querySelector("#wind");
   let windMph = windUnit * 2.237;
   windElement.innerHTML = `Wind: ${Math.round(windMph)} mph`;
+
+  let fahrenheitForecast = document.querySelectorAll("#forecast-temp");
+  fahrenheitForecast.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  celsiusButton.addEventListener("click", diplayCelsiusTemperature);
+  fahrenheitButton.removeEventListener("click", diplayFahrenheitTemperature);
 }
 
 function diplayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
-}
-function displayCelsiusRealFeel(event) {
+
   let temperatureRealFeel = document.querySelector("#real-feel");
   temperatureRealFeel.innerHTML = `Real feel ${Math.round(celsiusRealFeel)}°`;
-}
-function displayWindMetric(event) {
+
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = `Wind: ${Math.round(windUnit)} m/s`;
+
+  let celsiusForecast = document.querySelectorAll("#forecast-temp");
+  celsiusForecast.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  fahrenheitButton.addEventListener("click", diplayFahrenheitTemperature);
+  celsiusButton.removeEventListener("click", diplayCelsiusTemperature);
 }
 
 function currentLocation(position) {
@@ -146,31 +158,23 @@ function currentLocation(position) {
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(dispalyForecast);
 }
+
 function showCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
 
 let celsiusTemperature = null;
 let celsiusRealFeel = null;
-let forecastTemperature = null;
 let windUnit = null;
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", handleSubmit);
 
 let fahrenheitButton = document.querySelector("#fahrenheit");
-fahrenheitButton.addEventListener("click", () => {
-  diplayFahrenheitTemperature();
-  displayFahrenheitRealFeel();
-  displayWindMph();
-});
+fahrenheitButton.addEventListener("click", diplayFahrenheitTemperature);
 
 let celsiusButton = document.querySelector("#celsius");
-celsiusButton.addEventListener("click", () => {
-  diplayCelsiusTemperature();
-  displayCelsiusRealFeel();
-  displayWindMetric();
-});
+celsiusButton.addEventListener("click", diplayCelsiusTemperature);
 
 let currentButton = document.querySelector("#current-location");
 currentButton.addEventListener("click", showCurrentLocation);
