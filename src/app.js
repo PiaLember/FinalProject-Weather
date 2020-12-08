@@ -50,13 +50,14 @@ function displayTemperature(response) {
 
   celsiusTemperature = response.data.main.temp;
   celsiusRealFeel = response.data.main.feels_like;
+  windUnit = response.data.wind.speed;
 
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   realFeelElement.innerHTML = `Real feel ${Math.round(celsiusRealFeel)}°`;
   humidityElement.innerHTML = `Humidity: ${response.data.main.humidity} %`;
-  windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} m/s`;
+  windElement.innerHTML = `Wind: ${Math.round(windUnit)} m/s`;
   dateElement.innerHTML = formatDate(currentTime);
   iconElement.setAttribute(
     "src",
@@ -66,19 +67,19 @@ function displayTemperature(response) {
 }
 
 function dispalyForecast(response) {
-  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
   for (let index = 0; index < 12; index++) {
     forecast = response.data.list[index];
+    forecastTemperature = forecast.main.temp;
     forecastElement.innerHTML += `
     <div class="week">
     <img id="forecast-icon"
     src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
   />
-            <span class="forecast-temp">${Math.round(
-              forecast.main.temp
+            <span class="forecast-temp" id="forecast-temp">${Math.round(
+              forecastTemperature
             )}°</span>
             <span class="forecast-day">${formatDate(forecast.dt * 1000)}</span>
           </div>
@@ -115,6 +116,12 @@ function displayFahrenheitRealFeel(event) {
   )}°`;
 }
 
+function displayWindMph(event) {
+  let windElement = document.querySelector("#wind");
+  let windMph = windUnit * 2.237;
+  windElement.innerHTML = `Wind: ${Math.round(windMph)} mph`;
+}
+
 function diplayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
@@ -122,6 +129,10 @@ function diplayCelsiusTemperature(event) {
 function displayCelsiusRealFeel(event) {
   let temperatureRealFeel = document.querySelector("#real-feel");
   temperatureRealFeel.innerHTML = `Real feel ${Math.round(celsiusRealFeel)}°`;
+}
+function displayWindMetric(event) {
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `Wind: ${Math.round(windUnit)} m/s`;
 }
 
 function currentLocation(position) {
@@ -141,6 +152,8 @@ function showCurrentLocation(event) {
 
 let celsiusTemperature = null;
 let celsiusRealFeel = null;
+let forecastTemperature = null;
+let windUnit = null;
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", handleSubmit);
@@ -149,12 +162,14 @@ let fahrenheitButton = document.querySelector("#fahrenheit");
 fahrenheitButton.addEventListener("click", () => {
   diplayFahrenheitTemperature();
   displayFahrenheitRealFeel();
+  displayWindMph();
 });
 
 let celsiusButton = document.querySelector("#celsius");
 celsiusButton.addEventListener("click", () => {
   diplayCelsiusTemperature();
   displayCelsiusRealFeel();
+  displayWindMetric();
 });
 
 let currentButton = document.querySelector("#current-location");
