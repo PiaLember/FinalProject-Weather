@@ -1,13 +1,15 @@
 h1 {
   font-size: 56px;
   margin-bottom: -6px;
+  color:#52057b;
 }
 
-h6 {
+h6#time {
+  font-size: 20px;
   padding-top: 54px;
   padding-right: 10px;
   font-family: "Source Code Pro", monospace;
-  color: #5d54a4;
+  color: #52057b;
 }
 input[type="search"] {
   border-radius: 2px;
@@ -16,7 +18,10 @@ input[type="search"] {
   height: 42px;
   outline: 0;
   padding: 10px;
-  width: 300px;
+  width: 240px;
+}
+p{
+  color: #52057b;
 }
 p:first-letter {
   text-transform: capitalize;
@@ -41,7 +46,7 @@ small {
 }
 
 .weather-summary {
-  color: #5d54a4;
+  color: #52057b
   margin-top: 16px;
 }
 
@@ -49,7 +54,7 @@ small {
   margin-top: 10px;
 }
 .aditional-description {
-  color: #5d54a4;
+  color: #52057b;
   float: right;
   margin-top: -110px;
   margin-right: 70px;
@@ -57,7 +62,7 @@ small {
 
 .week {
   display: flex;
-  border: 1px solid #5d54a4;
+  border: 1px solid #52057b;
   border-radius: 4px;
   margin-bottom: 1px;
   padding-right: 4px;
@@ -70,26 +75,26 @@ small {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
-.forecast-temp {
+#hour-forecast {
+  float: right;
+  max-width: 280px;
+  color: #52057b;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+#forecast-temp {
   font-size: 14px;
   margin-top: 4px;
   margin-left: 12px;
+  color: #c060a1;
 }
-.forecast-day {
+#forecast-day {
   font-size: 12px;
   margin-left: 12px;
   margin-top: 4px;
   text-align: right;
-}
-
-#hour-forecast {
-  float: right;
-  max-width: 280px;
-  color: #5d54a4;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  margin: 0;
 }
 
 #forecast-icon {
@@ -97,17 +102,6 @@ small {
   height: 28px;
 }
 
-#current-location {
-  height: 34px;
-  background: none;
-  border-radius: 4px;
-  width: 36px;
-  border: 1px solid #5d54a4;
-}
-#current-location:hover {
-  color: #ffffff;
-  background-color: #5d54a4;
-}
 #degree-buttons {
   float: left;
   right: 0;
@@ -115,30 +109,38 @@ small {
   margin-right: 16px;
 }
 
+#current-location {
+  height: 34px;
+  width: 36px;
+  background: none;
+  border-radius: 4px;
+  border: 1px solid #52057b;
+}
+#current-location:hover {
+  background-color: #52057b;
+}
+
 #celsius {
   height: 34px;
   width: 36px;
 }
 #celsius:hover {
-  background-color: #5d54a4;
+  background-color: #52057b;
 }
 #fahrenheit {
   height: 34px;
   width: 36px;
 }
 #fahrenheit:hover {
-  background-color: #5d54a4;
+  background-color: #52057b;
 }
 #search-button {
   height: 42px;
   color: #ffffff;
-  background-color: #5d54a4;
+  background-color: #52057b;
   border-radius: 2px;
   width: 80px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-}
-#city-input {
-  width: 240px;
 }
 
 #icon {
@@ -150,11 +152,7 @@ small {
 #temp {
   font-size: 56px;
   padding-top: 28px;
-  color: #d789d7;
-}
-
-#time {
-  font-size: 20px;
+  color: #c060a1;
 }
 #humidity {
   font-size: 16px;

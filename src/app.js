@@ -8,18 +8,8 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[date.getDay()];
 
-  return `${day} ${hours}:${minutes}`;
+  return `${formatDays(timestamp)} ${hours}:${minutes}`;
 }
 
 function formatDays(timestamp) {
@@ -78,10 +68,8 @@ function dispalyForecast(response) {
     <img id="forecast-icon"
     src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
   />
-            <span class="forecast-temp" id="forecast-temp">${Math.round(
-              forecastTemperature
-            )}</span>
-            <span class="forecast-day">${formatDate(forecast.dt * 1000)}</span>
+            <span id="forecast-temp">${Math.round(forecastTemperature)}</span>
+            <span id="forecast-day">${formatDate(forecast.dt * 1000)}</span>
           </div>
   `;
   }
